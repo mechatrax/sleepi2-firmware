@@ -1,0 +1,40 @@
+#!/bin/sh
+# preinst script for sleepi2-firmware
+#
+# see: dh_installdeb(1)
+
+set -e
+
+DTBO=sleepi2.dtbo
+OVERLAY_DIR=/boot/overlays
+
+do_backup() {
+    overlay=$1
+    if [ -e ${OVERLAY_DIR}/${overlay}.old ]; then
+        echo "remove old backup"
+        rm ${OVERLAY_DIR}/${overlay}.old
+    fi
+    if [ -e ${OVERLAY_DIR}/${overlay} ]; then
+        echo "backup firmware to ${OVERLAY_DIR}/${overlay}.old"
+        mv ${OVERLAY_DIR}/${overlay} ${OVERLAY_DIR}/${overlay}.old
+    fi
+}
+
+case "$1" in
+    install|upgrade)
+        do_backup $DTBO
+    ;;
+
+    abort-upgrade)
+    ;;
+
+    *)
+        echo "preinst called with unknown argument \`$1'" >&2
+        exit 1
+    ;;
+esac
+
+#DEBHELPER#
+
+exit 0
+
