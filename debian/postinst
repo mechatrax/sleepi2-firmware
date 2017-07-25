@@ -7,21 +7,6 @@ set -e
 
 OVERLAY=sleepi2
 CONFIG=/boot/config.txt
-CMDLINE=/boot/cmdline.txt
-
-set_param() {
-    match="${1}=.\?\(\b\)"
-    replace="${1}=${2}"
-    file=$3
-    if grep -q $replace $file; then
-        return 0
-    fi
-    if grep -q $match $file; then
-        sed -i -e "s/${match}/${replace}\1/" $file
-    else
-        sed -i -e "s/^/${replace} /" $file
-    fi
-}
 
 case "$1" in
     configure)
@@ -30,17 +15,6 @@ case "$1" in
             raspi-config nonint set_config_var core_freq 250 $CONFIG
             if ! grep -q -E "^(device_tree_|dt)overlay=${OVERLAY}" $CONFIG; then
                 printf "dtoverlay=${OVERLAY}\n" >> $CONFIG
-            fi
-        fi
-        if [ -e $CMDLINE ]; then
-            cp $CMDLINE ${CMDLINE}.tmp
-            set_param "dwc_otg\.fiq_enable" "0" $CMDLINE
-            set_param "dwc_otg\.fiq_fsm_enable" "0" $CMDLINE
-            if diff -q $CMDLINE ${CMDLINE}.tmp > /dev/null; then
-                rm ${CMDLINE}.tmp
-            else
-                cp $CMDLINE ${CMDLINE}.bak
-                mv ${CMDLINE}.tmp $CMDLINE
             fi
         fi
     ;;

@@ -19,14 +19,27 @@ slee-Pi 2 を動作させるためのファームウェアを提供します。
 * /boot/config.txt  
   次のエントリが追記されます。  
   ```
-  device_tree_overlay=sleepi2
+  dtoverlay=sleepi2
   ```
 
-* /boot/cmdline.txt  
-  次のパラメータが追記されます。  
-  ```
-  dwc_otg.fiq_enable=0 dwc_otg.fiq_fsm_enable=0
-  ```
+  次のパラメータが指定可能です。  
+  * heartbeat_pin=\<n\>  
+    HEATBEAT 信号の割り当てを変更します。  
+    <n> には GPIO 番号を指定します。  
+
+  * noheartbeat  
+    HEATBEAT 信号の設定を無効にします。  
+
+  * cpuheartbeat  
+    HEATBEAT 信号を CPU のハードウェアで生成します。  
+
+  * interrupt_pin=\<n\>  
+    IRQ 信号の割り当てを変更します。  
+    <n> には GPIO 番号を指定します。  
+
+  * nointerrupt  
+    IRQ 信号の設定を無効にします。  
+
 
 インストール時に次のコマンドが実行されます。
 
