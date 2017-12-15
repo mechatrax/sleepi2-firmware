@@ -50,5 +50,5 @@ slee-Pi 2 を動作させるためのファームウェアを提供します。
   ```
   i2c の周波数を固定します。  
   ```
-  raspi-config nonint set_config_var core_freq 250 /boot/cmdline.txt
+  raspi-config nonint set_config_var core_freq 250 /boot/config.txt
   ```
