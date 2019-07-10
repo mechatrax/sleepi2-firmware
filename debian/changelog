@@ -1,3 +1,13 @@
+sleepi2-firmware (1.1.4) buster; urgency=medium
+
+  * Include device tree source instead of device tree blob overlay
+  * debian/rules: Add device-tree-compiler to Build-Depends
+  * debian/control: Change Section to kernel from misc
+  * Bump debhelper compatibility level to 12
+  * Bump Standards-Version to 4.3.0
+
+ -- Masahiro Honda <honda@mechatrax.com>  Mon, 08 Jul 2019 16:26:24 +0900
+
 sleepi2-firmware (1.1.3) unstable; urgency=low
 
   * debian/changelog: Fix typo

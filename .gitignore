@@ -1,3 +1,5 @@
+*.dtbo
+
 debian/debhelper-build-stamp
 debian/files
 debian/*.log
