@@ -6,7 +6,7 @@ sleepi2-firmware (1.1.4) buster; urgency=medium
   * Bump debhelper compatibility level to 12
   * Bump Standards-Version to 4.3.0
 
- -- Masahiro Honda <honda@mechatrax.com>  Mon, 08 Jul 2019 16:26:24 +0900
+ -- Masahiro Honda <honda@mechatrax.com>  Wed, 10 Jul 2019 10:31:13 +0900
 
 sleepi2-firmware (1.1.3) unstable; urgency=low
 
