@@ -7,10 +7,10 @@ slee-Pi 2 を動作させるためのファームウェアを提供します。
 ### /boot/overlays/sleepi2.dtbo  
 slee-Pi 2 を動作させるための Device Tree Blob ファイルです。
 
-### /usr/share/doc/sleepi-firmware/copyright  
+### /usr/share/doc/sleepi2-firmware/copyright  
 パッケージに含まれるファイルの著作権を記述したファイルです。
 
-### /usr/share/doc/sleepi-firmware/changelog.Debian.gz  
+### /usr/share/doc/sleepi2-firmware/changelog.Debian.gz  
 パッケージの変更点を記録したファイルです。
 
 ## 設定  
